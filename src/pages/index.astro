@@ -1,0 +1,37 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Systems from "../components/Systems.astro";
+import Services from "../components/Services.astro";
+import Work from "../components/Work.astro";
+import WhyUs from "../components/WhyUs.astro";
+import WarningSigns from "../components/WarningSigns.astro";
+import Process from "../components/Process.astro";
+import Areas from "../components/Areas.astro";
+import Faq from "../components/Faq.astro";
+import Estimate from "../components/Estimate.astro";
+import Footer from "../components/Footer.astro";
+const ogImage = new URL(Astro.url.pathname, Astro.site).href + "og.jpg";
+---
+
+<Base
+  title="Reyes Roofing LLC — Roofing in Phoenix, AZ (Redesign Concept)"
+  description="A redesign concept for Reyes Roofing LLC: residential and commercial roofing, repairs, leaks, inspections and replacement across Phoenix and Arizona."
+  ogImage={ogImage}
+>
+  <Header />
+  <main id="main">
+    <Hero />
+    <Systems />
+    <Services />
+    <Work />
+    <WhyUs />
+    <WarningSigns />
+    <Process />
+    <Areas />
+    <Faq />
+    <Estimate />
+  </main>
+  <Footer />
+</Base>

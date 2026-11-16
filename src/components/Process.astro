@@ -1,0 +1,28 @@
+---
+import { processSteps } from "../data/site";
+---
+
+<section class="bg-bone py-20 md:py-28">
+  <div class="wrap">
+    <p class="eyebrow mb-4" data-reveal>How it goes</p>
+    <h2 class="max-w-[22ch] text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.02]" data-reveal>
+      Four steps, no surprises.
+    </h2>
+
+    <ol class="mt-12 grid gap-px overflow-hidden border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        processSteps.map((step) => (
+          <li class="bg-bone p-6 md:p-7" data-reveal>
+            <span class="font-display text-[0.78rem] font-semibold tracking-[0.16em] text-red">
+              {step.step}
+            </span>
+            <h3 class="mt-4 text-[1.08rem] leading-tight">{step.title}</h3>
+            <p class="mt-2 text-[0.88rem] leading-relaxed text-ink/60">
+              {step.body}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

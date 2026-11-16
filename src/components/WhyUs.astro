@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import { images } from "../data/site";
+---
+
+<section id="about" class="bg-bone py-20 md:py-28">
+  <div class="wrap grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+    <div data-reveal>
+      <p class="eyebrow mb-4">Why Reyes</p>
+      <h2 class="max-w-[20ch] text-[clamp(2rem,4.4vw,3.4rem)] leading-[1.02]">
+        The roof decides the next step.
+      </h2>
+
+      <p class="mt-6 max-w-lg text-[1rem] leading-relaxed text-ink/65">
+        A roof is more than the material you can see. It is flashing,
+        penetrations, transitions, drainage and the structure underneath — and
+        the right answer depends on what condition those are in.
+      </p>
+
+      <ol class="mt-10 space-y-7">
+        <li class="flex gap-5">
+          <span
+            class="font-display text-[0.85rem] font-semibold tracking-[0.14em] text-red"
+            aria-hidden="true">01</span
+          >
+          <div>
+            <h3 class="text-[1.1rem]">Understand the concern</h3>
+            <p class="mt-1.5 text-[0.92rem] leading-relaxed text-ink/60">
+              The leak, the stain, the shingles on the lawn — start with what
+              you have noticed.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-5">
+          <span
+            class="font-display text-[0.85rem] font-semibold tracking-[0.14em] text-red"
+            aria-hidden="true">02</span
+          >
+          <div>
+            <h3 class="text-[1.1rem]">Evaluate the roofing system</h3>
+            <p class="mt-1.5 text-[0.92rem] leading-relaxed text-ink/60">
+              The visible symptom is not always the whole story. Materials,
+              flashing and drainage get looked at together.
+            </p>
+          </div>
+        </li>
+        <li class="flex gap-5">
+          <span
+            class="font-display text-[0.85rem] font-semibold tracking-[0.14em] text-red"
+            aria-hidden="true">03</span
+          >
+          <div>
+            <h3 class="text-[1.1rem]">Recommend the right direction</h3>
+            <p class="mt-1.5 text-[0.92rem] leading-relaxed text-ink/60">
+              Repair, maintenance, replacement or installation — without turning
+              every roofing concern into the same recommendation.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <figure class="relative" data-reveal>
+      <Image
+        src={images.team}
+        alt="Reyes Roofing LLC truck at a home in Arizona"
+        class="aspect-[4/5] w-full object-cover object-[center_60%]"
+        widths={[600, 1000]}
+        sizes="(min-width: 1024px) 45vw, 92vw"
+        format="webp"
+        quality={66}
+        loading="lazy"
+      />
+      <figcaption
+        class="absolute bottom-4 left-4 max-w-[15rem] bg-ink/95 px-5 py-4 text-[0.8rem] leading-snug text-bone/85"
+      >
+        Family-owned, working roofs across Arizona.
+      </figcaption>
+    </figure>
+  </div>
+</section>

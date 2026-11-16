@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-ink: #0b0b0c;
+  --color-ink-soft: #141416;
+  --color-ink-line: #26262a;
+  --color-bone: #faf7f2;
+  --color-bone-dim: #b9b3a9;
+  --color-red: #b3261e;
+  --color-red-bright: #e0492f;
+  --color-clay: #7d6f63;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bone text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    background: var(--color-red);
+    color: var(--color-bone);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-red-bright);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+    font-weight: 700;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    @apply font-display text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-red;
+  }
+
+  .btn,
+  .btn-red,
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[0.9rem] font-semibold tracking-wide transition-colors duration-200;
+  }
+
+  .btn-red {
+    @apply bg-red text-bone hover:bg-red-bright;
+  }
+
+  .btn-outline {
+    @apply border border-ink/20 text-ink hover:border-ink/45 hover:bg-ink/[0.03];
+  }
+
+  .btn-outline-light {
+    @apply border border-bone/25 text-bone hover:border-bone/60 hover:bg-bone/5;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .no-js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

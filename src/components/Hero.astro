@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import { site, images } from "../data/site";
+---
+
+<section id="top" class="relative isolate min-h-[88svh] overflow-hidden bg-ink">
+  <Image
+    src={images.hero}
+    alt="Tile roof at sunset in the Arizona desert"
+    class="absolute inset-0 -z-10 h-full w-full origin-bottom scale-[1.3] object-cover object-[center_68%] md:scale-100 md:object-center"
+    widths={[800, 1400, 2000]}
+    sizes="100vw"
+    format="webp"
+    quality={62}
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/60 to-ink/25"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-r from-ink/95 via-ink/45 to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="wrap flex min-h-[88svh] flex-col justify-end pb-14 pt-28 md:pb-20">
+    <p class="eyebrow mb-5 text-bone/70" data-reveal>
+      Family-owned · Phoenix, Arizona
+    </p>
+
+    <h1
+      class="max-w-[15ch] text-[clamp(2.7rem,8.4vw,6.2rem)] leading-[0.94] text-bone"
+      data-reveal
+    >
+      Phoenix roofs,<br /> built for 115°.
+    </h1>
+
+    <p
+      class="mt-6 max-w-xl text-[1.02rem] leading-relaxed text-bone/70 md:text-lg"
+      data-reveal
+    >
+      Sun, monsoon wind and heat take a roof apart one season at a time.
+      Reyes Roofing repairs, replaces and maintains roofs for homes and
+      commercial properties across Arizona.
+    </p>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center" data-reveal>
+      <a href="#estimate" class="btn-red px-7">Get a free estimate</a>
+      <a href={site.phoneHref} class="btn-outline-light px-7">
+        Call {site.phone}
+      </a>
+    </div>
+
+    <ul
+      class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-6 text-[0.72rem] uppercase tracking-[0.15em] text-bone/65"
+      data-reveal
+    >
+      <li>AZ ROC #{site.licenseA} · #{site.licenseB}</li>
+      <li class="hidden h-3 w-px bg-white/15 sm:block" aria-hidden="true"></li>
+      <li>BBB A+ since 2017</li>
+      <li class="hidden h-3 w-px bg-white/15 sm:block" aria-hidden="true"></li>
+      <li>{site.hours}</li>
+    </ul>
+  </div>
+</section>
