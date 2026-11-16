@@ -35,7 +35,7 @@ GoHighLevel template look with a bold, premium visual identity.
 ## Constraints
 
 - Astro 7 + Tailwind CSS 4 (matches the existing `redrocksglamping-demo` setup).
-- Static output, deployable to Render as a static site.
+- Static output, deployed to GitHub Pages at `inodepi.github.io/reyesroofing-demo/`.
 - Mobile-first; 390px is the design target, desktop is the enhancement.
 - Content sourced from the live site (homepage, about, contact) — real facts only.
 
@@ -127,7 +127,7 @@ JSON-LD with phone, opening hours (Mo–Su 08:00–22:00), areaServed, license I
 ```
 reyesroofing-demo/
   astro.config.mjs        # tailwind vite plugin, site url
-  render.yaml             # static site
+  .github/workflows/      # GitHub Pages deploy
   src/
     styles/global.css     # tokens, base, utilities
     layouts/Base.astro    # head, fonts, JSON-LD, header/footer slots
@@ -150,11 +150,11 @@ reyesroofing-demo/
 
 ## Deploy
 
-Render static site (`type: web`, `runtime: static`), build `npm run build`,
-publish `dist/`, on a free `*.onrender.com` subdomain. `noindex, nofollow` meta
-and `robots.txt` disallow — the demo must not compete with their real site in
-search or create duplicate local-business listings. `render.yaml` committed so it
-can be redeployed. Not linked to their domain. Footer carries the
+GitHub Pages via `.github/workflows/deploy.yml`, published at
+`https://inodepi.github.io/reyesroofing-demo/` (repo `inodepi/reyesroofing-demo`,
+`base: '/reyesroofing-demo'`). `noindex, nofollow` meta and `robots.txt` disallow —
+the demo must not compete with their real site in search or create duplicate
+local-business listings. Not linked to their domain. Footer carries the
 "unofficial redesign concept" disclaimer.
 
 ## Left to the builder

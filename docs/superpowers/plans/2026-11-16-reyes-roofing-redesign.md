@@ -6,7 +6,7 @@
 
 **Architecture:** Static Astro page. All facts (phone, hours, licenses, services, cities, FAQ) live in one typed data module; sections are small components fed from it. Photos are local, optimized through `astro:assets`. Scroll reveal is one inline IntersectionObserver in the base layout, no JS framework.
 
-**Tech Stack:** Astro 7, Tailwind CSS 4 (`@tailwindcss/vite`), `@astrojs/sitemap` not needed, Fontsource variable fonts, TypeScript data module.
+**Tech Stack:** Astro 7, Tailwind CSS 4 (`@tailwindcss/vite`), Fontsource variable fonts, TypeScript data module, GitHub Pages deploy workflow.
 
 **Spec:** `docs/superpowers/specs/2026-11-16-reyes-roofing-redesign-design.md`
 
@@ -34,15 +34,15 @@
 ### Task 1: Scaffold, tokens, fonts, deploy config
 
 **Files:**
-- Create: `reyesroofing-demo/package.json`, `astro.config.mjs`, `tsconfig.json`, `.gitignore`, `render.yaml`, `public/robots.txt`, `src/styles/global.css`, `src/pages/index.astro` (placeholder), `docs/` already exists.
+- Create: `reyesroofing-demo/package.json`, `astro.config.mjs`, `tsconfig.json`, `.gitignore`, `.github/workflows/deploy.yml`, `public/robots.txt`, `src/styles/global.css`, `src/pages/index.astro` (placeholder), `docs/` already exists.
 
 **Interfaces — Produces:** `global.css` tokens `--color-ink: #0B0B0C`, `--color-bone: #FAF7F2`, `--color-red: #B3261E`, `--color-red-bright: #E0492F`, `--font-display: "Archivo Variable"`, `--font-sans: "Inter Variable"`, utilities `.wrap`, `.btn-red`, `.btn-outline`, `.eyebrow`, `.reveal` / `.reveal.is-in`.
 
 - [ ] **Step 1:** Write `package.json` with `astro ^7.4.12`, `@tailwindcss/vite ^4.3.5`, `tailwindcss ^4.3.5`, `@fontsource-variable/archivo`, `@fontsource-variable/inter`; scripts `dev`, `build`, `preview`, `check`.
 - [ ] **Step 2:** `npm install`; confirm `node_modules/astro` exists.
-- [ ] **Step 3:** `astro.config.mjs` — `site: 'https://reyes-roofing-demo.onrender.com'`, tailwind vite plugin, no `base`.
+- [ ] **Step 3:** `astro.config.mjs` — `site: 'https://inodepi.github.io'`, `base: '/reyesroofing-demo'`, tailwind vite plugin.
 - [ ] **Step 4:** `global.css` — Tailwind import, `@theme` tokens above, base body/h tags, `.wrap` max 80rem, focus-visible ring, `.reveal { opacity: 0; transform: translateY(12px) }` with `@media (prefers-reduced-motion: reduce)` override to visible, `.no-js .reveal { opacity: 1; transform: none }`.
-- [ ] **Step 5:** `render.yaml` — static site, build `npm ci && npm run build`, publish `dist`. `public/robots.txt` — `User-agent: *` / `Disallow: /`.
+- [ ] **Step 5:** GitHub Pages workflow — `npm ci && npm run build`, upload `dist`, deploy with `actions/deploy-pages`. `public/robots.txt` — `User-agent: *` / `Disallow: /`.
 - [ ] **Step 6:** Verify: `npm run build` exits 0 and `dist/index.html` exists.
 
 ### Task 2: Content module + Base layout
